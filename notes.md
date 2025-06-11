@@ -226,4 +226,127 @@
 3. **Questions pratiques**
    - Les résultats sont-ils logiques ?
    - Correspondent-ils à ce qu'on observe sur le terrain ?
-   - Que peut-on faire avec cette information ? 
+   - Que peut-on faire avec cette information ?
+
+## Analyse Bivariée : Comprendre les Relations entre Variables
+
+### 1. Concepts Clés de l'Analyse Bivariée
+
+#### 1.1 Corrélations et leur Interprétation
+
+**Corrélation positive vs négative :**
+- Une corrélation **positive** indique que les variables évoluent dans le même sens
+  - Exemple : La corrélation positive (r = 0.93) entre `exam_score` et `previous_gpa` signifie que les étudiants ayant de bons résultats passés tendent à maintenir de bonnes performances
+- Une corrélation **négative** indique que les variables évoluent en sens opposé
+  - Exemple : La corrélation négative (r = -0.26) entre `exam_anxiety_score` et `previous_gpa` suggère que les étudiants ayant de meilleurs résultats tendent à être moins anxieux aux examens, ou inversement
+
+**Force des corrélations :**
+- |r| > 0.8 : Corrélation très forte
+- 0.6 < |r| < 0.8 : Corrélation forte
+- 0.4 < |r| < 0.6 : Corrélation modérée
+- 0.2 < |r| < 0.4 : Corrélation faible
+- |r| < 0.2 : Corrélation très faible
+
+#### 1.2 Pearson vs Spearman : Nature des Relations
+
+**Coefficient de Pearson (r) :**
+- Mesure la force des relations **linéaires**
+- Une relation linéaire signifie que la variation d'une variable est proportionnelle à la variation de l'autre
+  - Par exemple : Pour chaque point de GPA en plus, le score aux examens augmente de manière constante
+- Exemple : Pour `exam_score` et `previous_gpa`, r = 0.93 indique une relation presque parfaitement linéaire
+- Sensible aux valeurs extrêmes (outliers)
+
+**Coefficient de Spearman (ρ) :**
+- Mesure la force des relations **monotones** (pas nécessairement linéaires)
+- Compare les rangs des observations plutôt que leurs valeurs
+  - Par exemple : Un étudiant classé 1er en GPA tend à être aussi bien classé en examens, sans que la relation soit nécessairement proportionnelle
+- Des différences faibles entre Pearson et Spearman (comme dans notre cas) suggèrent que les relations sont principalement linéaires
+- Plus robuste aux outliers que Pearson
+
+#### 1.3 V de Cramer et Tests de Signification
+
+**V de Cramer :**
+- Mesure la force de l'association entre variables qualitatives
+- Varie de 0 (aucune association) à 1 (association parfaite)
+- Dans notre étude, les V sont généralement faibles (<0.01), indiquant des associations faibles
+- Utile pour comprendre les liens entre catégories (par exemple, filière et environnement d'étude préféré)
+
+**P-values :**
+- Indiquent la probabilité que l'association observée soit due au hasard
+- p < 0.05 est considéré comme statistiquement significatif
+  - Signifie qu'il y a moins de 5% de chances que la relation observée soit due au hasard
+- Exemple : La relation entre filière et environnement d'étude (p = 0.024) est significative
+- Ne pas confondre significativité statistique et importance pratique
+
+### 2. Principales Relations Identifiées
+
+#### 2.1 Performance Académique
+- Forte continuité dans les performances (r = 0.93 entre `exam_score` et `previous_gpa`)
+  - Suggère que les performances passées sont un excellent prédicteur des performances futures
+  - Peut indiquer un besoin d'intervention précoce pour les étudiants en difficulté
+- Impact négatif de l'anxiété et du stress sur les performances
+  - L'anxiété aux examens montre une corrélation négative modérée (r = -0.26)
+  - Le stress a un impact plus faible mais significatif (r = -0.13)
+- Influence modérée positive du temps d'étude (r ≈ 0.25)
+  - Indique que plus de temps d'étude est généralement associé à de meilleures performances
+  - Mais la relation modérée suggère que la qualité de l'étude compte autant que la quantité
+
+#### 2.2 Bien-être et Performance
+- L'anxiété aux examens affecte négativement les performances (r ≈ -0.24)
+  - Impact plus marqué sur les étudiants ayant de bons résultats antérieurs
+  - Suggère un besoin de gestion du stress pour les étudiants performants
+- Le stress impacte négativement :
+  - Les performances académiques (r ≈ -0.12)
+  - La santé mentale (r ≈ -0.12)
+- Ces corrélations suggèrent un cercle vicieux potentiel :
+  - Le stress réduit les performances
+  - Les mauvaises performances augmentent le stress
+  - La santé mentale se dégrade
+  - Les performances continuent de baisser
+
+#### 2.3 Gestion du Temps et Écrans
+- Forte corrélation entre temps sur réseaux sociaux et temps d'écran total (r = 0.78)
+  - Les réseaux sociaux sont le principal contributeur au temps d'écran
+  - Netflix est le second contributeur important (r = 0.62)
+- Le temps d'étude montre une corrélation positive modérée avec les performances
+  - Suggère que la qualité de l'étude est aussi importante que la quantité
+- Pas de corrélation forte entre temps d'écran et performances
+  - Indique que certains étudiants gèrent efficacement leur temps d'écran
+  - Possible effet de compensation par d'autres facteurs
+
+#### 2.4 Facteurs Environnementaux
+- L'environnement d'étude influence significativement les performances (η = 0.18)
+  - Impact plus important que prévu initialement
+  - Suggère l'importance d'avoir accès à des espaces d'étude adaptés
+- La filière impacte le temps d'étude (η = 0.18)
+  - Variations significatives entre disciplines
+  - Peut nécessiter des approches pédagogiques différenciées
+- Ces relations suggèrent l'importance du contexte d'apprentissage
+  - L'environnement physique compte
+  - Les spécificités des disciplines doivent être prises en compte
+
+### 3. Implications pour l'Intervention Éducative
+
+1. **Gestion du Stress et de l'Anxiété**
+   - Développer des programmes de soutien psychologique
+   - Mettre en place des ateliers de gestion du stress
+   - Cibler particulièrement les périodes d'examens
+   - Former les enseignants à reconnaître les signes de stress
+
+2. **Optimisation de l'Environnement d'Étude**
+   - Améliorer les espaces d'étude disponibles
+   - Adapter les environnements selon les filières
+   - Créer des zones dédiées au travail calme
+   - Faciliter le travail collaboratif quand approprié
+
+3. **Gestion du Temps**
+   - Proposer des formations sur la gestion du temps
+   - Sensibiliser à l'utilisation équilibrée des écrans
+   - Développer des outils de planification adaptés
+   - Encourager des pauses structurées
+
+4. **Support Académique Ciblé**
+   - Identifier précocement les étudiants à risque
+   - Mettre en place des systèmes de tutorat adaptés
+   - Suivre les progrès de manière régulière
+   - Adapter le soutien selon les besoins individuels 
