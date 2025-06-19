@@ -1,7 +1,7 @@
 [project]
 name = "projet-alla-planche"
 version = "0.1.0"
-description = "Add your description here"
+description = "Dataset analysis for a school project."
 requires-python = ">=3.13"
 dependencies = [
     "matplotlib>=3.10.3",
